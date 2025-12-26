@@ -1,0 +1,92 @@
+ion-content {
+  --background: #121212;
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  .stepper-logo {
+    margin-bottom: 50px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+
+    .icon-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .step-icon {
+        font-family: 'Material Icons';
+        font-size: 20px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        background-color: transparent;
+        transition: all 0.3s ease;
+        opacity: 0.6;
+
+        &.completed {
+          background-color: #4caf50;
+          color: #ffffff;
+          opacity: 1;
+        }
+
+        &.current {
+          opacity: 1;
+          color: #ffffff;
+          background-color: transparent;
+        }
+      }
+
+      .step-line {
+        width: 2px;
+        height: 40px;
+        margin-top: 4px;
+        border-left: 1px dotted #ffffff;
+
+        &.completed {
+          border-left: 2px solid #ffffff;
+        }
+      }
+    }
+
+    .step-label {
+      font-size: 20px;
+      line-height: 1.5;
+      font-weight: 400;
+      color: #ffffff;
+      display: flex;
+      margin-top: 4px;
+      flex-direction: column;
+      opacity: 0.6;
+
+      &.current {
+        font-weight: 500;
+        opacity: 1;
+      }
+
+      &.optional {
+        .optional-label {
+          display: contents;
+        }
+      }
+    }
+  }
+}

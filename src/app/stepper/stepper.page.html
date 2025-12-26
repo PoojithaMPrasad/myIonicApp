@@ -1,0 +1,55 @@
+<ion-content class="ion-padding">
+  <div class="stepper" role="list">
+    <img
+      class="stepper-logo"
+      src="assets/images/logo_with_white_bg.svg"
+      alt="Logo"
+    />
+
+    <ion-button
+      fill="clear"
+      type="button"
+      class="step"
+      *ngFor="let step of steps; let i = index"
+      (click)="onStepClick(i)"
+      [attr.aria-current]="step.current ? 'step' : null"
+      role="listitem"
+    >
+      <div class="icon-container">
+        <ion-icon
+          class="step-icon"
+          [ngClass]="{
+            completed: step.completed,
+            current: step.current
+          }"
+          [name]="
+            step.completed
+              ? 'checkmark'
+              : step.current
+              ? 'radio-button-on'
+              : 'radio-button-off'
+          "
+        ></ion-icon>
+
+        <div
+          *ngIf="i !== steps.length - 1"
+          class="step-line"
+          [ngClass]="{ completed: step.completed }"
+        ></div>
+      </div>
+
+      <div
+        class="step-label"
+        [ngClass]="{
+          current: step.current,
+          optional: step.optional
+        }"
+      >
+        {{ step.label }}
+        <span *ngIf="step.optional" class="optional-label">
+          (Optional)
+        </span>
+      </div>
+    </ion-button>
+  </div>
+</ion-content>

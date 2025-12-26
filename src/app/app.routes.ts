@@ -3,6 +3,14 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
+    redirectTo: 'stepper',
+    pathMatch: 'full',
+  },
+  {
+    path: 'stepper',
+    loadComponent: () =>
+      import('./pages/stepper/stepper.page').then(
+        (m) => m.StepperPage
+      ),
   },
 ];
